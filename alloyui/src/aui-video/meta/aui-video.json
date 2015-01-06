@@ -1,0 +1,11 @@
+{
+    "aui-video": {
+        "requires": [
+            "querystring-stringify-simple",
+            "aui-node",
+            "aui-component",
+            "aui-debounce"
+        ],
+        "skinnable": true
+    }
+}

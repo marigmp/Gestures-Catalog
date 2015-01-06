@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../build/aui-css/css/bootstrap.css">
+    <script src="../../build/aui/aui.js"></script>
+</head>
+<body>
+    <h1>AlloyUI - Ace Editor</h1>
+    <div id="editor"></div>
+    <script>
+    YUI({ filter:'raw' }).use('aui-ace-editor', function(Y) {
+
+        var editor = new Y.AceEditor(
+            {
+                boundingBox: '#editor',
+                // highlightActiveLine: false,
+                mode: 'javascript',
+                // readOnly: true,
+                // showPrintMargin: false,
+                // tabSize: 8,
+                // useSoftTabs: true,
+                // useWrapMode: true,
+                value: 'alert("Write something here...");'
+            }
+        ).render();
+
+    });
+    </script>
+</body>
+</html>

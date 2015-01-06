@@ -1,0 +1,45 @@
+{
+	"aui-image-viewer": {
+        "use": [
+            "aui-image-viewer-base",
+            "aui-image-viewer-gallery",
+            "aui-image-viewer-media"
+        ]
+    },
+
+    "aui-image-viewer-base": {
+        "requires": [
+            "anim",
+            "widget",
+            "widget-modality",
+            "widget-position",
+            "widget-position-align",
+            "widget-position-constrain",
+            "widget-stack",
+            "widget-stdmod",
+            "aui-event",
+            "aui-node-base",
+            "aui-widget-cssclass",
+            "aui-widget-toggle"
+        ],
+        "skinnable": true
+    },
+
+    "aui-image-viewer-gallery": {
+    	"requires": [
+    		"aui-image-viewer-base",
+    		"aui-pagination",
+    		"aui-toolbar"
+    	],
+    	"skinnable": true
+    },
+
+    "aui-image-viewer-media": {
+        "requires": [
+            "plugin",
+            "aui-image-viewer-base",
+            "aui-pagination",
+            "aui-toolbar"
+        ]
+    }
+}

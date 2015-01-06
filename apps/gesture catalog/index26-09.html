@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="../../alloyui/build/aui-css/css/bootstrap.css">
+        <script src="../../alloyui/build/aui/aui.js"></script>
+        <script src="../../tabletop/src/tabletop.js"></script>
+        <script src="../../tabletop/examples/common/jquery.js"></script>
+        <script src="../../swplayer/swfobject.js"></script>
+    </head>
+
+    <body class="landing-page  wsite-theme-light wsite-page-index">
+        <div class="bg-wrapper">
+            <br>
+            <div id="header-wrap" class="container">                
+                <a href="/"><img src="assets/logo.png"></a>                
+            </div><!-- end Header-wrap -->
+            </br>
+            
+            <div id="main-wrap" class="container">
+                
+                <!-- filters -->
+                <!--h3>activated filters</h3-->
+                <div id="filtersContainer" style="border: solid red 3px; height: 100px">
+                    <table style="width:100%; height:100%" align="right">
+                      <tr>
+                        <td valign="top" width="25%"><div id="filters1">
+                            <b>application domain</b>
+                            <form>
+                            <input type="checkbox" name="domain" value="construction"> construction<br>
+                            <input type="checkbox" name="domain" value="coorporative"> coorporative<br>
+                            <input type="checkbox" name="domain" value="domotic"> domotic<br>
+                            <input type="checkbox" name="domain" value="entertainment"> entertainment<br>
+                            <input type="checkbox" name="domain" value="it"> information technology<br>
+                            <input type="checkbox" name="domain" value="medical"> medical<br>
+                            <input type="checkbox" name="domain" value="military"> military<br>
+                            <input type="checkbox" name="domain" value="musical"> musical<br>
+                            <input type="checkbox" name="domain" value="security"> public security<br>
+                            <input type="checkbox" name="domain" value="research"> research<br>
+                            <input type="checkbox" name="domain" value="robotic"> robotic
+                            </form>
+                        </div></td>
+                        <td valign="top" width="25%"><div id="filters2">                
+                            <b>identified pattern</b>
+                            <form>
+                            <input type="checkbox" name="pattern" value="extend"> extend the hand to shoot<br>
+                            <input type="checkbox" name="pattern" value="pinch"> pinch and spread to scale<br>
+                            <input type="checkbox" name="pattern" value="point"> point or touch to select<br>
+                            <input type="checkbox" name="pattern" value="push"> push to move<br>
+                            <input type="checkbox" name="pattern" value="swipe"> swipe to dismiss<br>
+                            <input type="checkbox" name="pattern" value="turn"> turn to rotate<br>
+                            <input type="checkbox" name="pattern" value="wave"> wave to activate
+                            </form>
+                        </div></td> 
+                        <td valign="top" width="25%"><div id="filters3">
+                            <b>gesture type</b>
+                            <form>
+                            <input type="checkbox" name="type" value="deitic"> deitic<br>
+                            <input type="checkbox" name="type" value="emblem"> emblem<br>
+                            <input type="checkbox" name="type" value="iconic"> iconic<br>
+                            <input type="checkbox" name="type" value="manipulation"> manipulation<br>
+                            <input type="checkbox" name="type" value="metaphoric"> metaphoric<br>
+                            <input type="checkbox" name="type" value="regulator"> regulator
+                            </form>
+                        </div></td>
+                        <td valign="top" width="25%"><div id="filters4">
+                            <b>feedback type</b>
+                            <form>
+                            <input type="checkbox" name="feedback" value="audible"> audible<br>
+                            <input type="checkbox" name="feedback" value="physical"> physical<br>
+                            <input type="checkbox" name="feedback" value="visual"> visual
+                            </form>
+
+                            <b>input device</b>
+                            <form>
+                            <input type="checkbox" name="filter" value="gloves"> gloves<br>
+                            <input type="checkbox" name="filter" value="others"> others<br>
+                            <input type="checkbox" name="filter" value="none"> none
+                            </form>
+                        </div></td>
+                      </tr>
+                    </table>
+                </div>
+
+                <!-- scenes -->               
+                <div id="scenesContainer">
+                    <script>
+                        var worksheet;
+                        var rows;
+                        var categories;
+
+                        window.onload = function() { init() };
+
+                        //loading spreadsheet
+                        var public_spreadsheet_key = '13qwCqlQBfqEpu3MZuqjIBHxhSMFI5-L5aVop1nxmIgU';
+                        function init() {
+                            worksheet = Tabletop.init( { key: public_spreadsheet_key,
+                                             callback: showInfo,
+                                             simpleSheet: true } );
+                        }
+
+                        // data comes through as a simple array since simpleSheet is turned on
+                        function showInfo(data, tabletop) {
+                            rows = data;
+                            var categories = tabletop.sheets("Main Worksheet").column_names;
+
+                            var div = document.getElementById('tabledebug');
+                            var html = "<h1>SHEET " + categories.length + "</h1>";
+                            var prop, i;
+
+                            for(i = 0; i < rows.length; i++) {
+                              for(prop in rows[i]) {
+                                html = html + "&nbsp;-&nbsp;" + rows[i][prop];
+                              }
+                              html = html + "<hr><br>";
+                            }
+                            div.innerHTML = div.innerHTML + html;
+
+                            var scenesHTML = document.getElementById('scenesContainer').innerHTML;
+                            scenesHTML += "<table style=\"width:100%\">";
+
+                            for(var i = 0; i < 6; ++i)
+                            {
+                                //start table
+                                if(i % 3 == 0)
+                                {
+                                    scenesHTML += "<tr>";
+                                }
+
+                                var youtubeID = rows[i]['youtubeid'];
+                                scenesHTML += 
+                                "<td><div class=\"youtube\" id=" + youtubeID + " style=\"width: 360px; height: 200px; float: left; border: 2px solid #000000;\"></div></td>";
+                                
+                                if(i % 3 == 2)
+                                {
+                                    scenesHTML += "</tr>";
+                                }
+                            }
+                            scenesHTML += "</table>";
+                            document.getElementById('scenesContainer').innerHTML = scenesHTML;
+                            executeRawYoutubeScript();
+                        }
+
+                    
+                        //showing videos
+                        function executeRawYoutubeScript(){
+                            var i,c,y,v,s,n;v=document.getElementsByClassName("youtube");if(v.length>0){s=document.createElement("style");s.type="text/css";s.innerHTML='.youtube{background-color:#000;max-width:100%;overflow:hidden;position:relative;cursor:hand;cursor:pointer}.youtube .thumb{bottom:0;display:block;left:0;margin:auto;max-width:100%;position:absolute;right:0;top:0;width:100%;height:auto}.youtube .play{filter:alpha(opacity=80);opacity:.8;height:77px;left:50%;margin-left:-38px;margin-top:-38px;position:absolute;top:50%;width:77px;background:url("data:image/png;base64,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") no-repeat}';document.body.appendChild(s)}for(n=0;n<v.length;n++){y=v[n];i=document.createElement("img");i.setAttribute("src","http://i.ytimg.com/vi/"+y.id+"/hqdefault.jpg");i.setAttribute("class","thumb");c=document.createElement("div");c.setAttribute("class","play");y.appendChild(i);y.appendChild(c);y.onclick=function(){var a=document.createElement("iframe");a.setAttribute("src","https://www.youtube.com/embed/"+this.id+"?autoplay=1&autohide=1&border=0&wmode=opaque&enablejsapi=1");a.style.width=this.style.width;a.style.height=this.style.height;this.parentNode.replaceChild(a,this)}};
+                        }
+                    </script>                    
+                </div>
+
+                <!-- pagination -->
+                <div id="buttonsContainer"> 
+                    </br>
+                    <button id="hide" class="yui3-button">Hide</button>
+                    <button id="show" class="yui3-button">Show</button>
+                    <button id="toggle" class="yui3-button">Toggle</button>  
+                </div>
+
+                </br>
+
+                <!-- table -->
+                <div id="tableContainer">
+                    <script>
+                    var w = 380;
+                    var h = 210;
+
+                    YUI({ filter: 'raw' }).use('aui-datatable', function(Y) {        
+
+                        var tableColumns = [];
+                        for(var categorie in categories)
+                        {
+                            tableColumns.push({key: categorie, sortable: true});
+                        }
+
+                        var data = [
+                            { name: 'teste', address: '3271 Another Ave', city: 'New York', state: 'AL', amount: 3, active: 'no', colors: ['red','blue'], fruit: ['apple'], date: '2013-01-01' },
+                            { name: 'Bob C. Uncle', address: '9996 Random Road', city: 'Los Angeles', state: 'CA', amount: 0, active: 'maybe', colors: ['green'], fruit: ['cherry'], date: '2013-01-01' },
+                            { name: 'John D. Smith', address: '1623 Some Street', city: 'San Francisco', state: 'CA', amount: 5, active: 'yes', colors: ['red'], fruit: ['cherry'], date: '' },
+                            { name: 'Joan E. Jones', address: '3217 Another Ave', city: 'New York', state: 'KY', amount: 3, active: 'no', colors: ['red','blue'], fruit: ['apple','cherry'], date: '2013-01-06' }
+                        ];
+
+                        new Y.DataTable({
+                            boundingBox: '#tableContainer',
+                            columns: [
+                                {
+                                    key: 'name',
+                                    sortable: true,
+                                    editor: new Y.TextAreaCellEditor({
+                                        on: {
+                                            save: function(event) {
+                                                console.log('save', event.newVal);
+                                            },
+                                            cancel: function(event) {
+                                                console.log('cancel', event);
+                                            }
+                                        },
+                                        validator: {
+                                            rules: {
+                                                value: {
+                                                    required: true
+                                                }
+                                            }
+                                        }
+                                    })
+                                },
+                                {
+                                    key: 'address',
+                                    editor: new Y.TextAreaCellEditor()
+                                },
+                                {
+                                    key: 'city',
+                                    editor: new Y.TextAreaCellEditor()
+                                },
+                                {
+                                    key: 'state',
+                                    editor: new Y.DropDownCellEditor({
+                                        editable: true,
+                                        options: ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA"]
+                                    })
+                                },
+                                'amount',
+                                {
+                                    key:"active",
+                                    editor: new Y.RadioCellEditor({
+                                        editable: true,
+                                        options: {
+                                            yes: 'Yes',
+                                            no: 'No',
+                                            maybe: 'Maybe'
+                                        }
+                                    })
+                                },
+                                {
+                                    key:"colors",
+                                    editor: new Y.CheckboxCellEditor({
+                                        editable: true,
+                                        multiple: true,
+                                        options: {
+                                            red: 'Red',
+                                            green: 'Green',
+                                            blue: 'Blue'
+                                        }
+                                    })
+                                },
+                                {
+                                    key: 'fruit',
+                                    sortable: true,
+                                    editor: new Y.DropDownCellEditor({
+                                        editable: true,
+                                        multiple: true,
+                                        options: {
+                                            apple: 'Apple',
+                                            cherry: 'Cherry',
+                                            banana: 'Banana',
+                                            kiwi: 'Kiwi'
+                                        }
+                                    })
+                                },
+                                {
+                                    key: 'date',
+                                    sortable: true,
+                                    editor: new Y.DateCellEditor({
+                                        calendar: {
+                                            width:'400px',
+                                            showPrevMonth: true,
+                                            showNextMonth: true,
+                                            selectionMode: 'multiple'
+                                        }
+                                    })
+                                }
+                            ],
+                            data: data,
+                            editEvent: 'dblclick',
+                            plugins: [
+                                {
+                                    fn: Y.Plugin.DataTableHighlight,
+                                    cfg: {
+                                        // highlightRange: false,
+                                        // type: 'rows',
+                                        // activeBorderWidth: 5,
+                                        // rangeBorderWidth: 1
+                                    }
+                                }
+                            ]
+                        }).render();
+
+                    });
+                    
+                    YUI().use('node', function(Y) {
+                        Y.delegate('click', function(e) {
+                            var buttonID = e.currentTarget.get('id'),
+                                node = Y.one('#cell11');
+                                
+                            if (buttonID === 'show') {
+                                node.show();
+                            } else if (buttonID === 'hide') {
+                                node.hide();
+                            } else if (buttonID === 'toggle') {
+                                node.toggleView();
+                            }
+
+                        }, document, 'button');
+                    });
+                </script>
+
+                </div>
+
+                <!-- table debug -->
+                <div id="tabledebug"></div>
+            </div><!-- end main-wrap -->
+
+         <div id="footer-wrap" class="container"></div>
+
+    </body>
+</html>

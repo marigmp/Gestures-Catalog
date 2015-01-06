@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../build/aui-css/css/bootstrap.css">
+    <script src="../../build/aui/aui.js"></script>
+    <style>
+    #vertical, #verticalbottom {
+        float: left;
+        margin: 10px;
+    }
+    </style>
+</head>
+<body>
+    <h1>AlloyUI - Progress bar</h1>
+    <div id="nolabel"></div>
+    <div id="basic" class="progress-warning"></div>
+    <div id="stripped" class="active progress-striped progress-info"></div>
+    <div id="vertical" class="progress-success"></div>
+    <div id="verticalbottom" class="bottom progress-danger"></div>
+    <script>
+    YUI({ filter: 'raw' }).use('aui-progressbar', function(Y) {
+
+        new Y.ProgressBar({
+            boundingBox: '#nolabel',
+            value: 90,
+            width: 500
+        }).render();
+
+        new Y.ProgressBar({
+            boundingBox: '#basic',
+            label: '40%',
+            max: 100,
+            min: 0,
+            on: {
+                complete: function(e) {
+                    this.set('label', 'Complete!');
+                },
+                valueChange: function(e) {
+                    this.set('label', e.newVal + '%');
+                }
+            },
+            value: 40,
+            width: 500
+        }).render();
+
+        new Y.ProgressBar({
+            boundingBox: '#stripped',
+            label: '90%',
+            value: 90,
+            width: 500
+        }).render();
+
+        new Y.ProgressBar({
+            boundingBox: '#vertical',
+            orientation: 'vertical',
+            label: '60%',
+            value: 60,
+            width: 30,
+            height: 200
+        }).render();
+
+        new Y.ProgressBar({
+            boundingBox: '#verticalbottom',
+            orientation: 'vertical',
+            label: '60%',
+            value: 60,
+            width: 30,
+            height: 200
+        }).render();
+
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+</html>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="../../alloyui/build/aui-css/css/bootstrap.css">
+        <script src="../../alloyui/build/aui/aui.js"></script>
+        <script src="../../tabletop/src/tabletop.js"></script>
+        <script src="../../tabletop/examples/common/jquery.js"></script>
+        <script src="../../swplayer/swfobject.js"></script>
+        <script type="text/javascript" src="C:/Users/Mariana/Dropbox/CHI2015/Website/apps/gesture catalog/script.js"></script>
+        <style>
+            .content table {
+                display: none;
+            }
+            .content table:first-child {
+                display: block;
+            }
+            table, th, td {
+                //border: 1px solid black;
+            }
+
+            td {
+                padding-right: 2px;
+                height: 60px;
+                width:150px;
+            }
+        </style>
+    </head>
+
+    <body class="landing-page  wsite-theme-light wsite-page-index">
+        <div class="bg-wrapper">
+            </br>
+            <div id="header-wrap" class="container">                
+                <a href="/"><img src="assets/logo.png"></a>                
+            </div><!-- end Header-wrap -->
+            </br>
+            
+            <div id="main-wrap" class="container">
+                
+                <!-- filters -->
+                <!--h3>activated filters</h3-->
+                <!-- <div id="filtersContainer">
+                </div> -->
+                <div id="filtersContainer" class="container">
+                </div>
+               <!--<div id="filtersContainer" style="border: solid red 3px; height: 100px">
+                    <table style="width:100%; height:100%" align="right">
+                      <tr>
+                        <td valign="top" width="25%"><div id="filters1">
+                            <b>application domain</b>
+                            <form>
+                            <input type="checkbox" name="domain" value="construction"> construction<br>
+                            </form>
+                        </div></td>
+                        <td valign="top" width="25%"><div id="filters2">                
+                            <b>identified pattern</b>
+                            <form>
+                            <input type="checkbox" name="pattern" value="extend"> extend the hand to shoot<br>
+                            <input type="checkbox" name="pattern" value="pinch"> pinch and spread to scale<br>
+                            <input type="checkbox" name="pattern" value="point"> point or touch to select<br>
+                            <input type="checkbox" name="pattern" value="push"> push to move<br>
+                            <input type="checkbox" name="pattern" value="swipe"> swipe to dismiss<br>
+                            <input type="checkbox" name="pattern" value="turn"> turn to rotate<br>
+                            <input type="checkbox" name="pattern" value="wave"> wave to activate
+                            </form>
+                        </div></td> 
+                        <td valign="top" width="25%"><div id="filters3">
+                            <b>gesture type</b>
+                            <form>
+                            <input type="checkbox" name="type" value="deitic"> deitic<br>
+                            <input type="checkbox" name="type" value="emblem"> emblem<br>
+                            <input type="checkbox" name="type" value="iconic"> iconic<br>
+                            <input type="checkbox" name="type" value="manipulation"> manipulation<br>
+                            <input type="checkbox" name="type" value="metaphoric"> metaphoric<br>
+                            <input type="checkbox" name="type" value="regulator"> regulator
+                            </form>
+                        </div></td>
+                        <td valign="top" width="25%"><div id="filters4">
+                            <b>feedback type</b>
+                            <form>
+                            <input type="checkbox" name="feedback" value="audible"> audible<br>
+                            <input type="checkbox" name="feedback" value="physical"> physical<br>
+                            <input type="checkbox" name="feedback" value="visual"> visual
+                            </form>
+
+                            <b>input device</b>
+                            <form>
+                            <input type="checkbox" name="filter" value="gloves"> gloves<br>
+                            <input type="checkbox" name="filter" value="others"> others<br>
+                            <input type="checkbox" name="filter" value="none"> none
+                            </form>
+                        </div></td>
+                      </tr>
+                    </table> 
+                </div> -->
+
+                <!-- scenes -->               
+                <div id="scenesContainer" class="content">
+                    <br>
+                </div>
+                
+                <!-- pagination -->               
+                </br>
+
+                <div id="pagination" class="pagination pagination-centered">
+                </div>
+
+                <script>
+                    sceneContainer();
+                </script>
+                    <!-- <button id="hide" class="yui3-button">Hide</button>
+                    <button id="show" class="yui3-button">Show</button>
+                    <button id="toggle" class="yui3-button">Toggle</button>-->
+                </br>
+
+                <!-- table -->
+                <div id="tableContainer">
+                    <script>
+                        tableContainer();
+                    </script>                    
+                </div>
+
+                <script>
+                    //filtersContainer();
+                </script>
+
+                <!-- table debug -->
+                <div id="tabledebug"></div>
+                <!-- <div id="categoriesTypeSeparation"></div> -->
+            </div><!-- end main-wrap -->
+
+         <div id="footer-wrap" class="container"></div>
+
+    </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="../../alloyui/build/aui-css/css/bootstrap.css">
+        <script src="../../alloyui/build/aui/aui.js"></script>
+        <script src="../../tabletop/src/tabletop.js"></script>
+        <script src="../../tabletop/examples/common/jquery.js"></script>
+        <script src="../../swplayer/swfobject.js"></script>
+        <script type="text/javascript" src="C:/Users/Mariana/Dropbox/CHI2015/Website/apps/gesture catalog/script.js"></script>
+        <style>
+            .content table {
+                display: none;
+            }
+            .content table:first-child {
+                display: block;
+            }
+
+        </style>
+    </head>
+
+    <body class="landing-page  wsite-theme-light wsite-page-index">
+        <div class="bg-wrapper">
+            <br>
+            <div id="header-wrap" class="container">                
+                <a href="/"><img src="assets/logo.png"></a>                
+            </div><!-- end Header-wrap -->
+            </br>
+            
+            <div id="main-wrap" class="container" style="border: 1px solid black">
+                
+                <!-- filters -->
+                <!--h3>activated filters</h3-->
+                <div id="filtersContainer" style="border: solid red 3px; height: 100px">
+                    <table style="width:100%; height:100%" align="right">
+                      <tr>
+                        <td valign="top" width="25%"><div id="filters1">
+                            <b>application domain</b>
+                            <form>
+                            <input type="checkbox" name="domain" value="construction"> construction<br>
+                            <input type="checkbox" name="domain" value="coorporative"> coorporative<br>
+                            <input type="checkbox" name="domain" value="domotic"> domotic<br>
+                            <input type="checkbox" name="domain" value="entertainment"> entertainment<br>
+                            <input type="checkbox" name="domain" value="it"> information technology<br>
+                            <input type="checkbox" name="domain" value="medical"> medical<br>
+                            <input type="checkbox" name="domain" value="military"> military<br>
+                            <input type="checkbox" name="domain" value="musical"> musical<br>
+                            <input type="checkbox" name="domain" value="security"> public security<br>
+                            <input type="checkbox" name="domain" value="research"> research<br>
+                            <input type="checkbox" name="domain" value="robotic"> robotic
+                            </form>
+                        </div></td>
+                        <td valign="top" width="25%"><div id="filters2">                
+                            <b>identified pattern</b>
+                            <form>
+                            <input type="checkbox" name="pattern" value="extend"> extend the hand to shoot<br>
+                            <input type="checkbox" name="pattern" value="pinch"> pinch and spread to scale<br>
+                            <input type="checkbox" name="pattern" value="point"> point or touch to select<br>
+                            <input type="checkbox" name="pattern" value="push"> push to move<br>
+                            <input type="checkbox" name="pattern" value="swipe"> swipe to dismiss<br>
+                            <input type="checkbox" name="pattern" value="turn"> turn to rotate<br>
+                            <input type="checkbox" name="pattern" value="wave"> wave to activate
+                            </form>
+                        </div></td> 
+                        <td valign="top" width="25%"><div id="filters3">
+                            <b>gesture type</b>
+                            <form>
+                            <input type="checkbox" name="type" value="deitic"> deitic<br>
+                            <input type="checkbox" name="type" value="emblem"> emblem<br>
+                            <input type="checkbox" name="type" value="iconic"> iconic<br>
+                            <input type="checkbox" name="type" value="manipulation"> manipulation<br>
+                            <input type="checkbox" name="type" value="metaphoric"> metaphoric<br>
+                            <input type="checkbox" name="type" value="regulator"> regulator
+                            </form>
+                        </div></td>
+                        <td valign="top" width="25%"><div id="filters4">
+                            <b>feedback type</b>
+                            <form>
+                            <input type="checkbox" name="feedback" value="audible"> audible<br>
+                            <input type="checkbox" name="feedback" value="physical"> physical<br>
+                            <input type="checkbox" name="feedback" value="visual"> visual
+                            </form>
+
+                            <b>input device</b>
+                            <form>
+                            <input type="checkbox" name="filter" value="gloves"> gloves<br>
+                            <input type="checkbox" name="filter" value="others"> others<br>
+                            <input type="checkbox" name="filter" value="none"> none
+                            </form>
+                        </div></td>
+                      </tr>
+                    </table>
+                </div>
+
+                <!-- scenes -->               
+                <div id="scenesContainer" style="border: 1px solid yellow" class="content">
+                </div>
+                
+                <!-- pagination -->               
+                </br>
+
+                <div id="pagination" class="pagination pagination-centered">
+                </div>
+
+                <script>
+                    sceneContainer();
+                </script>
+                    <!-- <button id="hide" class="yui3-button">Hide</button>
+                    <button id="show" class="yui3-button">Show</button>
+                    <button id="toggle" class="yui3-button">Toggle</button>  -->
+                </br>
+
+                <!-- table -->
+                <div id="tableContainer">
+                    <script>
+                        tableContainer();
+                    </script>
+                    
+                </div>
+
+                <!-- table debug -->
+                <div id="tabledebug"></div>
+            </div><!-- end main-wrap -->
+
+         <div id="footer-wrap" class="container"></div>
+
+    </body>
+</html>

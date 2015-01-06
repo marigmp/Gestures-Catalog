@@ -1,0 +1,10 @@
+{
+    "aui-audio": {
+        "requires": [
+            "aui-node",
+            "aui-component",
+            "querystring-stringify-simple"
+        ],
+        "skinnable": true
+    }
+}
