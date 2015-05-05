@@ -7,6 +7,9 @@ The webpage is a catalog of Sci-Fi movies scenes. Our goal is that researchers, 
 
 # Files
 index.html : This file will take you to the main page of the application.
+
 script.js: This file contains the filters, pagination and onset scenes logic.
+
 alloyui , src and tabletop folders: contains libraries used for manage the page (tables, pagination, videos etc.)
+
 assets: contains all media files used in the application.
