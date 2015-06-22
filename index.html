@@ -72,9 +72,18 @@
                 background-color: gray;
             }
         </style>
+		<script>
+		$( document ).ready(function() {
+		console.log("teste");
+		 $('#cadu').dynatable();
+		});
+		</script>
     </head>
 
     <body class="landing-page  wsite-theme-light wsite-page-index">
+	<script type="text/javascript">
+      window.onload = function() { init() };
+	</script>
         
         <div class="bg-wrapper">
             </br>
@@ -86,11 +95,12 @@
             </br>
             <!-- <div id="button_div"></div> -->
             <div id="main-wrap" class="container">
-                <!-- table -->
-                <div id="tableContainer" class="content">
-                </div>
+            <div id="tableContainer" class="content">
+
+			</div>
 				
-                <!-- table debug -->
+                
+				
                 
             </div><!-- end main-wrap -->
             
@@ -98,6 +108,5 @@
          <div id="footer-wrap" class="container" align="center">
 		 Copyright &copy <script>document.write(new Date().getFullYear());</script> Voxar Labs. All rights reserved.
 		 </div>
-
     </body>
 </html>
