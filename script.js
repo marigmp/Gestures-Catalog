@@ -17,7 +17,7 @@ function init() {
         callback: showInfo, 
         simpleSheet: true,
         debug: true } );
-    //categories = worksheet.sheets("Main Worksheet").column_names;
+		categories = worksheet.sheets("Main Worksheet").column_names;
 }
 
 // uti
@@ -102,7 +102,7 @@ function refreshMovies() {
 
     /* 
         Applying filters choice
-    */
+    
     for(i = 6; i < categories.length; i++) {
         var selectedArrayFilters = new Array();
 
@@ -214,7 +214,7 @@ function refreshMovies() {
         }
         scenesHTML += "</table>";
     }
-    //console.log(indexsLeft.length);
+    console.log("sucesso");
     document.getElementById('scenesContainer').innerHTML = scenesHTML;
 
     // ------------------------------------------------------------------------------------
