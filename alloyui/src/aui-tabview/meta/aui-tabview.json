@@ -1,9 +1,0 @@
-{
-    "aui-tabview": {
-        "requires": [
-            "selector-css3",
-            "tabview",
-            "aui-component"
-        ]
-    }
-}

@@ -42,10 +42,8 @@ function inArray(uniqueTypes, datai) {
 }
 
 // helper for filtersContainer
-function listFilters(movies, colName) { // where data (rows) is an array of strings
-    /*for(var i = 0; i < movies.length; i++) {
-        console.log(movies[i][colName]);
-    }*/
+/*function listFilters(movies, colName) { // where data (rows) is an array of strings
+    
     var uniqueTypes = new Array();
     var next = 0;
 
@@ -63,8 +61,8 @@ function listFilters(movies, colName) { // where data (rows) is an array of stri
     }
     return uniqueTypes;
 }
-
-function filtersContainer(rows, tabletop) {
+*/
+/*function filtersContainer(rows, tabletop) {
 
     var tableCategories = tabletop.sheets("Main Worksheet").column_names;
     //categories =  tabletop.sheets("Main Worksheet").column_names;
@@ -94,7 +92,7 @@ function filtersContainer(rows, tabletop) {
 
     document.getElementById('buttonRefresh').innerHTML = "<button type=\"button\" class=\"btn btn-default\" style=\"position: relative; float: right;\" onclick=\"refreshMovies()\">Refresh</button></br>";
 }
-
+*/
 function refreshMovies() {
     var arrayFilters;
     var tempRows = rows.slice();
